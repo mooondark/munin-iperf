@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# iperf_ munin grabber script
+# use it with iperf_munin.sh and set it with a 30mn cronjob
+# server was set on bouygues.iperf.fr but you can find a list here (https://iperf.cc/) or here (https://iperf.fr/iperf-servers.php)
+# 2019 moondark
+
+if [ "$1" = "config" ]; then
+        echo "graph_title iperf to bouygues.iperf.fr"
+        echo 'graph_vlabel Mbits/sec'
+        echo 'graph_args --base 1000 --lower-limit 0 --upper-limit 130'
+        echo 'graph_category network'
+        echo 'graph_period second'
+        echo "graph_info This instance of iperf measures the transmit speed to bouygues.iperf.fr"
+        echo 'down.label DownSpeed'
+#       echo 'down.cdef down,8,*'
+        echo 'down.draw AREA'
+        echo 'up.label UpSpeed'
+#       echo 'up.cdef up,8,*'
+        echo 'up.draw LINE1'
+
+else
+
+        echo "$(</etc/munin/iperf.down)"
+        echo "$(</etc/munin/iperf.up)"
+
+fi
