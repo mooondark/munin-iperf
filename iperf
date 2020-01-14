@@ -13,10 +13,8 @@ if [ "$1" = "config" ]; then
         echo 'graph_period second'
         echo "graph_info This instance of iperf measures the transmit speed to bouygues.iperf.fr"
         echo 'down.label DownSpeed'
-#       echo 'down.cdef down,8,*'
         echo 'down.draw AREA'
         echo 'up.label UpSpeed'
-#       echo 'up.cdef up,8,*'
         echo 'up.draw LINE1'
 
 else
