@@ -11,7 +11,7 @@ sleep $[ ( $RANDOM % 20 ) + 15 ]s
 
 #Ajust the -f 12 option of cut for your version of iperf3 (sometimes it's more or less)
 
-        down=`iperf3 -f m -c lyon.testdebit.info -p 5206 -6 -R -P8 -O 2 -t 8\
+        down=`iperf3 -f m -c lyon.testdebit.info -p 9217 -6 -R -P8 -O 2 -t 8\
                 | grep Mbits \
                 | cut -d ' ' -f 12 \
                 | sed '{$!d;}'`
@@ -28,7 +28,7 @@ sleep $[ ( $RANDOM % 20 ) + 15 ]s
 #Upload speed for 10s with 4 parallels updtream in ipv4 an omitting the first 2 seconds (-O 2)
 #Ajust the -f 12 option of cut for your version of iperf3 (sometimes it's more or less)
 
-        up=`iperf3 -f m -c lyon.testdebit.info -p 5206 -6 -P4 -O 2 -t 10\
+        up=`iperf3 -f m -c lyon.testdebit.info -p 9219 -6 -P4 -O 2 -t 10\
                 | grep Mbits \
                 | cut -d ' ' -f 13 \
                 | sed '{$!d;}'`
