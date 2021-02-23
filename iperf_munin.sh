@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Available servers from Bouygues ISP :
+# - bouygues.testdebit.info (Paris) : From port 9200 to port 9240
+# - lyon.testdebit.info (Lyon) : From port 9200 to port 9240
+# - aix-marseille.testdebit.info (Aix) : From port 9200 to port 9240
+# - bordeaux.testdebit.info (Bordeaux) : From port 9200 to port 9240
+# - lille.testdebit.info (Lille) : From port 9200 to port 9240
+
 sleep $[ ( $RANDOM % 20 ) + 15 ]s
 
 #Ajust the -f 12 option of cut for your version of iperf3 (sometimes it's more or less)
