@@ -2,16 +2,16 @@
 #
 # iperf_ munin grabber script
 # use it with iperf_munin.sh and set it with a 30mn cronjob
-# server was set on bouygues.iperf.fr but you can find a list here (https://iperf.cc/) or here (https://iperf.fr/iperf-servers.php)
-# 2019 moondark
+# server was set on iperf3.moji.fr but you can find a list here https://iperf3serverlist.net/
+# 2026 moondark
 
 if [ "$1" = "config" ]; then
-        echo "graph_title iperf to bouygues.iperf.fr"
+        echo "graph_title iperf to iperf3.moji.fr"
         echo 'graph_vlabel Mbits/sec'
         echo 'graph_args --base 1000 --lower-limit 0 --upper-limit 130'
         echo 'graph_category network'
         echo 'graph_period second'
-        echo "graph_info This instance of iperf measures the transmit speed to bouygues.iperf.fr"
+        echo "graph_info This instance of iperf measures the transmit speed to iperf3.moji.fr"
         echo 'down.label DownSpeed'
         echo 'down.draw AREA'
         echo 'up.label UpSpeed'

@@ -1,17 +1,14 @@
 #!/bin/bash
 
-# Available servers from Bouygues ISP :
-# - bouygues.testdebit.info (Paris) : From port 9200 to port 9240
-# - lyon.testdebit.info (Lyon) : From port 9200 to port 9240
-# - aix-marseille.testdebit.info (Aix) : From port 9200 to port 9240
-# - bordeaux.testdebit.info (Bordeaux) : From port 9200 to port 9240
-# - lille.testdebit.info (Lille) : From port 9200 to port 9240
+# Available servers:
+# - iperf3.moji.fr : From port 5200 to port 5240
+# - speedtest.milkywan.fr : From port 9200 to port 9240
 
 sleep $[ ( $RANDOM % 20 ) + 15 ]s
 
 #Ajust the -f 12 option of cut for your version of iperf3 (sometimes it's more or less)
 
-        down=`iperf3 -f m -c lyon.testdebit.info -p 9217 -6 -R -P8 -O 2 -t 8\
+        down=`iperf3 -f m -c iperf3.moji.fr -p 5217 -6 -R -P8 -O 2 -t 8\
                 | grep Mbits \
                 | cut -d ' ' -f 12 \
                 | sed '{$!d;}'`
@@ -28,7 +25,7 @@ sleep $[ ( $RANDOM % 20 ) + 15 ]s
 #Upload speed for 10s with 4 parallels updtream in ipv4 an omitting the first 2 seconds (-O 2)
 #Ajust the -f 12 option of cut for your version of iperf3 (sometimes it's more or less)
 
-        up=`iperf3 -f m -c lyon.testdebit.info -p 9219 -6 -P4 -O 2 -t 10\
+        up=`iperf3 -f m -c iperf3.moji.fr -p 5219 -6 -P4 -O 2 -t 10\
                 | grep Mbits \
                 | cut -d ' ' -f 13 \
                 | sed '{$!d;}'`
